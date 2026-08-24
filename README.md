@@ -21,10 +21,17 @@ wsl --import Ubuntu2204_AI_Dev C:\Ubuntu2204_AI_Dev C:\Ubuntu2204_AI_Dev.tar
 git init
 
 git submodule add https://github.com/yryo1005/ai-dev-kit.git
+git submodule add https://github.com/yryo1005/ai-tex-kit.git
 
 mkdir .logs
 mkdir .orders
 mkdir .reports
+
+wget https://github.com/yryo1005/cursor_template/releases/download/v1.0.0/tokens.json.enc
+
+openssl enc -d -aes-256-cbc -pbkdf2 -iter 100000 \
+    -in tokens.json.enc \
+    -out tokens.json
 ```
 
 4. `.orders/order_{n:03}.md` を作成し，下記の内容を記述

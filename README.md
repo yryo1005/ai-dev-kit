@@ -38,11 +38,14 @@ mkdir .logs
 mkdir .orders
 mkdir .reports
 
+echo "" >> .orders/order_001.md
+
 wget https://github.com/yryo1005/ai-dev-kit/releases/download/v1.0.0/tokens.json.enc
 
 openssl enc -d -aes-256-cbc -pbkdf2 -iter 100000 \
     -in tokens.json.enc \
-    -out tokens.json
+    -out tokens.json 
+# 山富以外は上記のプロセスは不要
 ```
 
 4. `.orders/order_{n:03}.md` を作成し，下記の内容を記述

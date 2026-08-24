@@ -23,10 +23,15 @@ claude login
 
 ```text
 git init
+echo "tokens.json" >> .gitignore
 
+mkdir .ai
+cd .ai
 git submodule add https://github.com/yryo1005/ai-dev-kit.git
 git submodule add https://github.com/yryo1005/ai-tex-kit.git
 git submodule add https://github.com/yryo1005/ai-pptx-kit.git
+
+cd ..
 
 mkdir .logs
 mkdir .orders

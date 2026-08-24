@@ -21,7 +21,8 @@ AIエージェントは，本ファイルの内容を基本規約として扱い
 | 機械学習 | `@.ai/ai-dev-kit/machine_learning.md` |
 | レポート・ドキュメントの作成 | `@.ai/ai-dev-kit/documentation.md` |
 | 仮想環境の作成 | `@.ai/ai-dev-kit/environment_construction.md` |
-| TeXレポートの作成 | `@.ai/ai-dev-kit/tex.md` |
+| 論文（TeXレポート）の作成 | `@.ai/ai-tex-kit/README.md` |
+| スライドの作成 | `@.ai/ai-pptx-kit/README.md` |
 
 ---
 

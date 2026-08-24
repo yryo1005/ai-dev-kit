@@ -32,6 +32,7 @@ git submodule add https://github.com/yryo1005/ai-tex-kit.git
 git submodule add https://github.com/yryo1005/ai-pptx-kit.git
 
 cd ..
+cp .ai/ai-dev-kit/CLAUDE.md ./CLAUDE.md
 
 mkdir .logs
 mkdir .orders

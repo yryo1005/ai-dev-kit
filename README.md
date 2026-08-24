@@ -11,15 +11,19 @@ https://drive.google.com/drive/folders/1V0gRYpVfX93hNxGMjQ9Db66az0_YeI2z?usp=dri
 mkdir C:\Ubuntu2204_AI_Dev
 wsl --import Ubuntu2204_AI_Dev C:\Ubuntu2204_AI_Dev C:\Ubuntu2204_AI_Dev.tar
 wsl -d Ubuntu2204_AI_Dev
+code /home/user/workspace
 
 # claudeを使用する場合
 claude login
 ```
+
+2回目以降は，下記のリンクから `lunch_Ubuntu2204_AI_Dev.bat` をダウンロードし，ダブルクリックするとVS Codeが実行される
+https://drive.google.com/drive/folders/1V0gRYpVfX93hNxGMjQ9Db66az0_YeI2z?usp=drive_link
    
 ## プロジェクトを作る際
 1. `Ubuntu2204_AI_Dev` のWSL環境に接続
-2. 作業ディレクトリを作成
-3. 作業ディレクトリに移動し，ターミナルで下記のコマンドを実行
+2. `/home/user/workspace` の直下に作業ディレクトリを作成
+3. 作業ディレクトリに移動し，VS Codeのターミナルで下記のコマンドを実行
 
 ```text
 git init
@@ -40,12 +44,11 @@ mkdir .reports
 
 echo "" >> .orders/order_001.md
 
+# 山富以外は下記のプロセスは不要
 wget https://github.com/yryo1005/ai-dev-kit/releases/download/v1.0.0/tokens.json.enc
-
 openssl enc -d -aes-256-cbc -pbkdf2 -iter 100000 \
     -in tokens.json.enc \
     -out tokens.json 
-# 山富以外は上記のプロセスは不要
 ```
 
 4. `.orders/order_{n:03}.md` を作成し，下記の内容を記述
@@ -188,7 +191,10 @@ sudo apt install -y \
     fd-find \
     fzf \
     jq \
-    ncdu
+    ncdu \
+    libreoffice \
+    libreoffice-l10n-ja \
+    libreoffice-help-ja
 curl -fsSL https://claude.ai/install.sh | bash
 
 git lfs install

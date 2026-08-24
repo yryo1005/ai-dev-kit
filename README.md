@@ -22,6 +22,7 @@ git init
 
 git submodule add https://github.com/yryo1005/ai-dev-kit.git
 git submodule add https://github.com/yryo1005/ai-tex-kit.git
+git submodule add https://github.com/yryo1005/ai-pptx-kit.git
 
 mkdir .logs
 mkdir .orders

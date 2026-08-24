@@ -4,12 +4,16 @@ WSL上の共通開発環境と，AIコーディングに必要な指示・規約
 
 ## WSL環境をインポート
 1. 下記のリンクから `Ubuntu2204_AI_Dev.tar` をダウンロード
-https://drive.google.com/drive/folders/10jDbQ5NyOvBQwpiPVDvx4W6unkHHvDWn?usp=sharing
+https://drive.google.com/drive/folders/1V0gRYpVfX93hNxGMjQ9Db66az0_YeI2z?usp=drive_link
 
 2. 管理者としてコマンドプロンプトを実行し，下記のコマンドを実行
 ```text
 mkdir C:\Ubuntu2204_AI_Dev
 wsl --import Ubuntu2204_AI_Dev C:\Ubuntu2204_AI_Dev C:\Ubuntu2204_AI_Dev.tar
+wsl -d Ubuntu2204_AI_Dev
+
+# claudeを使用する場合
+claude login
 ```
    
 ## プロジェクトを作る際
@@ -28,7 +32,7 @@ mkdir .logs
 mkdir .orders
 mkdir .reports
 
-wget https://github.com/yryo1005/cursor_template/releases/download/v1.0.0/tokens.json.enc
+wget https://github.com/yryo1005/ai-dev-kit/releases/download/v1.0.0/tokens.json.enc
 
 openssl enc -d -aes-256-cbc -pbkdf2 -iter 100000 \
     -in tokens.json.enc \
@@ -175,6 +179,7 @@ sudo apt install -y \
     fzf \
     jq \
     ncdu
+curl -fsSL https://claude.ai/install.sh | bash
 
 git lfs install
 git config --global init.defaultBranch main

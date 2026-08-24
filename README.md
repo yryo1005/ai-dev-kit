@@ -46,7 +46,8 @@ openssl enc -d -aes-256-cbc -pbkdf2 -iter 100000 \
 
 4. `.orders/order_{n:03}.md` を作成し，下記の内容を記述
 ```text
-`@.ai/ai-dev-kit/root_prompt.md` を参照してプログラムを作成してください
+与えられたタスクに応じて，`@.ai/ai-dev-kit/root_prompt.md` の指示する文書を参照にしてください
+対象の文書から他の文書を参照する指示がある場合は，必ずこれを参照にしてください
 
 {作成するプログラムの指示}
 ```

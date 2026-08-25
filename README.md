@@ -18,6 +18,7 @@ claude login
 ```
 
 2回目以降は，下記のリンクから `lunch_Ubuntu2204_AI_Dev.bat` をダウンロードし，ダブルクリックするとVS Codeが実行される
+
 https://drive.google.com/drive/folders/1V0gRYpVfX93hNxGMjQ9Db66az0_YeI2z?usp=drive_link
    
 ## プロジェクトを作る際
@@ -37,6 +38,7 @@ git submodule add https://github.com/yryo1005/ai-pptx-kit.git
 
 cd ..
 cp .ai/ai-dev-kit/CLAUDE.md ./CLAUDE.md
+cp .ai/ai-dev-kit/AGENT.md ./AGENT.md
 
 mkdir .logs
 mkdir .orders
@@ -53,13 +55,21 @@ openssl enc -d -aes-256-cbc -pbkdf2 -iter 100000 \
 
 4. `.orders/order_{n:03}.md` を作成し，下記の内容を記述
 ```text
-与えられたタスクに応じて，`@.ai/ai-dev-kit/root_prompt.md` の指示する文書を参照にしてください
-対象の文書から他の文書を参照する指示がある場合は，必ずこれを参照にしてください
-
 {作成するプログラムの指示}
 ```
+※ `CLAUDE.md`，`AGENT.md`を介して`ai-dev-kit/root_prompt.md`を参照するので，いずれのファイルの参照も不要です．
 
-5. `.orders/order_{n:03}.md` を参照しプログラムを作成する様に指示する
+例)
+```text
+MNISTを分類するプログラムを作成してください
+* AdamとSGDの学習結果を比較する
+* Seed値は3種類試す
+* Epoch数を5回にする
+```
+
+
+
+1. `.orders/order_{n:03}.md` を参照しプログラムを作成する様に指示する
 
 ## 基本原則
 AIエージェントは，原則として以下のルールに従って作業します．

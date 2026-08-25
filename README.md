@@ -38,7 +38,7 @@ git submodule add https://github.com/yryo1005/ai-pptx-kit.git
 
 cd ..
 cp .ai/ai-dev-kit/CLAUDE.md ./CLAUDE.md
-cp .ai/ai-dev-kit/AGENT.md ./AGENT.md
+cp .ai/ai-dev-kit/AGENTS.md ./AGENTS.md
 
 mkdir .logs
 mkdir .orders
@@ -57,7 +57,7 @@ openssl enc -d -aes-256-cbc -pbkdf2 -iter 100000 \
 ```text
 {作成するプログラムの指示}
 ```
-※ `CLAUDE.md`，`AGENT.md`を介して`ai-dev-kit/root_prompt.md`を参照するので，いずれのファイルの参照も不要です．
+※ `CLAUDE.md`，`AGENTS.md`を介して`ai-dev-kit/root_prompt.md`を参照するので，いずれのファイルの参照も不要です．
 
 例)
 ```text
@@ -66,8 +66,6 @@ MNISTを分類するプログラムを作成してください
 * Seed値は3種類試す
 * Epoch数を5回にする
 ```
-
-
 
 1. `.orders/order_{n:03}.md` を参照しプログラムを作成する様に指示する
 
@@ -105,6 +103,12 @@ AIの作業ログ
 .reports/
     ↓
 AIによる作業報告
+
+## Orderファイルの自動生成
+
+AIエディタは，ユーザーから作業内容をチャットで指示された場合，その指示内容を `.orders/order_{n:03}.md` に保存します．
+`n` は `.orders/` 内に存在する最大のOrder番号に1を加えた番号です．
+この際，ユーザーの指示をどのように解釈，保管したかも `.orders/order_{n:03}.md` に記述されます
 
 ## WSL環境を作るためのコマンド
 ```bash

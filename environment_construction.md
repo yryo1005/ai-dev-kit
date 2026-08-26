@@ -34,6 +34,10 @@ nbconvert
 ```
 仮想環境をJupyterのカーネルとして使用できるよう設定してください．
 
+### テスト
+`tests/`（配置規約は`@.ai/ai-dev-kit/root_prompt.md`を参照）にテストを作成する場合は，`pytest`を
+該当する仮想環境にインストールし，`requirements_{環境名}.txt`に含めてください．
+
 ### VS Code
 `uv` で作成した仮想環境がVS Codeから認識されるよう，プロジェクトルートの `.vscode/settings.json` に以下を記述してください．
 ```json
@@ -49,12 +53,15 @@ nbconvert
 以下のような，Gitで管理する必要がないファイルやディレクトリは `.gitignore` に追加してください．
 ```gitignore
 # Python
-.env_*/
+.venv_*/
 __pycache__/
 *.py[cod]
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Test
+.pytest_cache/
 
 # Machine Learning
 datasets/
@@ -94,7 +101,7 @@ tokens.json
 2. `tokens.json` の存在を確認する．
 3. `uv` のインストール状態を確認する．
 4. 必要なPythonバージョンを決定する．
-5. `.env_{環境名}` に仮想環境を作成する．
+5. `.venv_{環境名}` に仮想環境を作成する．
 6. `requirements_{環境名}.txt` を作成または確認する．
 7. `requirements_{環境名}.txt` に基づいてライブラリをインストールする．
 8. `ipykernel`，`jupyter`，`nbconvert` がインストールされていることを確認する．

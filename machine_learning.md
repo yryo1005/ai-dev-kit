@@ -1,7 +1,7 @@
 # 機械学習プログラムに関する規約
 - `@.ai/ai-dev-kit/environment_construction.md` の指示に基づき，仮想環境を作成してください
-- プログラムの終了後，仕様書と実験結果をまとめたレポートを `@.ai/ai-dev-kit/document.md` の指示に基づき作成してください．
-- 実験計画を考えるAIエージェントのリポジトリのサブモジュールを，`@.ai/ai-agent/README.md`に従いセットアップしてください．
+- プログラムの終了後，仕様書と実験結果をまとめたレポートを `@.ai/ai-dev-kit/documentation.md` の指示に基づき作成してください．
+- 実験計画を考えるAIエージェント（`machine_learning`ドメイン）が未構築の場合は，`@.ai/ai-agent/README.md`に従いセットアップしてください．サブモジュールとして，あるいはプロジェクト内へ直接実装する形のいずれでもよい．
 - `tokens.json`が無い場合はユーザにこれを警告してください．
 - `tokens.json`は必ず`.gitignore`に追加してください．
 
@@ -193,9 +193,11 @@ AIの学習のプログラムは，データセットの定義，モデルの定
 ./
 ├── .ai/
 │   ├── ai-agent/
+│   │   ├── core/
 │   │   ├── research/
+│   │   ├── machine_learning/
 │   │   ├── development/
-│   │   ├── document/
+│   │   ├── documentation/
 │   │   └── slide/
 │   ├── ai-dev-kit/
 │   │   ├── root_prompt.md

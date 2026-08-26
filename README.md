@@ -35,6 +35,7 @@ cd .ai
 git submodule add https://github.com/yryo1005/ai-dev-kit.git
 git submodule add https://github.com/yryo1005/ai-tex-kit.git
 git submodule add https://github.com/yryo1005/ai-pptx-kit.git
+git submodule add https://github.com/yryo1005/ai-agent.git
 
 cd ..
 cp .ai/ai-dev-kit/CLAUDE.md ./CLAUDE.md

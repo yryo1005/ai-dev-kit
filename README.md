@@ -12,9 +12,6 @@ mkdir C:\Ubuntu2204_AI_Dev
 wsl --import Ubuntu2204_AI_Dev C:\Ubuntu2204_AI_Dev C:\Ubuntu2204_AI_Dev.tar
 wsl -d Ubuntu2204_AI_Dev
 code /home/user/workspace
-
-# claudeを使用する場合
-claude login
 ```
 
 2回目以降は，下記のリンクから `lunch_Ubuntu2204_AI_Dev.bat` をダウンロードし，ダブルクリックするとVS Codeが実行される
@@ -31,14 +28,13 @@ git init
 echo "tokens.json" >> .gitignore
 
 mkdir .ai
-cd .ai
-git submodule add https://github.com/yryo1005/ai-dev-kit.git
-git submodule add https://github.com/yryo1005/ai-tex-kit.git
-git submodule add https://github.com/yryo1005/ai-pptx-kit.git
-git submodule add https://github.com/yryo1005/ai-agent.git
+git submodule add https://github.com/yryo1005/ai-dev-kit.git .ai/ai-dev-kit
+git submodule add https://github.com/yryo1005/ai-tex-kit.git .ai/ai-tex-kit
+git submodule add https://github.com/yryo1005/ai-pptx-kit.git .ai/ai-pptx-kit
+git submodule add https://github.com/yryo1005/ai-agent.git .ai/ai-agent
+git submodule add https://github.com/yryo1005/pptx-render.git .ai/ai-pptx-kit/pptx-render
 export PATH="$PATH:$(pwd)/.ai/ai-agent/bin"
 
-cd ..
 cp .ai/ai-dev-kit/CLAUDE.md ./CLAUDE.md
 cp .ai/ai-dev-kit/AGENTS.md ./AGENTS.md
 
@@ -212,6 +208,7 @@ sudo apt install -y \
     libreoffice \
     libreoffice-l10n-ja \
     libreoffice-help-ja
+
 curl -fsSL https://claude.ai/install.sh | bash
 
 git lfs install
@@ -234,8 +231,17 @@ sudo apt install -y \
     texlive-lang-japanese \
     texlive-fonts-recommended \
     texlive-fonts-extra \
-    texlive-latex-extra
+    texlive-latex-extra \
+    texlive-xetex
+
 sudo kanji-config-updmap-sys haranoaji
+
+sudo apt-get install -y  \
+    dvisvgm \
+    fontconfig \
+    fonts-ipafont \
+    fonts-ipaexfont \
+    poppler-utils
 
 # 
 sudo apt update

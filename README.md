@@ -1,6 +1,48 @@
 # ai-dev-kit
-`ai-dev-kit`は，AIと人間が共通の開発規約に従ってソフトウェアを開発するためのキットです．
+`ai-dev-kit` は，AIと人間が協調して研究・開発を行うための共通基盤です．
+AIエージェントによる作業計画，プログラム開発，実験，論文作成，発表資料作成までを，一貫したワークフローとして管理します．
 WSL上の共通開発環境と，AIコーディングに必要な指示・規約・便利ツールを提供します．
+
+```mermaid
+flowchart TB
+    A["ai-dev-kit<br/>AI Research & Development Foundation"]
+    B["ai-agent<br/>Planning & Automation"]
+    C["ai-tex-kit<br/>Paper & LaTeX"]
+    D["ai-pptx-kit<br/>Presentation"]
+    E["pptx-render<br/>PPTX → PDF"]
+
+    F([".orders/<br/>Order"])
+    G([".reports/<br/>Report"])
+    H{{"Claude Code<br/>AI Editor"}}
+
+    I(["Paper / PDF"])
+    J(["PPTX"])
+    K(["PDF"])
+
+    A --> B
+    A --> C
+    A --> D
+    D -. uses .-> E
+
+    B --> F
+    F --> H
+    H --> G
+    G --> B
+
+    C --> I
+    D --> J
+    E --> K
+
+    classDef repo fill:#e8f1ff,stroke:#2563eb,stroke-width:2px,color:#111827
+    classDef state fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#111827
+    classDef ai fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#111827
+    classDef output fill:#ecfdf5,stroke:#059669,stroke-width:1.5px,color:#111827
+
+    class A,B,C,D,E repo
+    class F,G state
+    class H ai
+    class I,J,K output
+```
 
 ## WSL環境をインポート
 1. 下記のリンクから `Ubuntu2204_AI_Dev.tar` をダウンロード
@@ -51,6 +93,16 @@ openssl enc -d -aes-256-cbc -pbkdf2 -iter 100000 \
     -out tokens.json 
 ```
 
+### サブモジュールの構成
+```mermaid
+graph TD
+    A[ai-dev-kit]
+    A --> B[ai-agent]
+    A --> C[ai-tex-kit]
+    A --> D[ai-pptx-kit]
+    D --> E[pptx-render]
+```
+
 4. `.orders/order_{n:03}.md` を作成し，下記の内容を記述
 ```text
 {作成するプログラムの指示}
@@ -65,7 +117,7 @@ MNISTを分類するプログラムを作成してください
 * Epoch数を5回にする
 ```
 
-1. `.orders/order_{n:03}.md` を参照しプログラムを作成する様に指示する
+5. `.orders/order_{n:03}.md` を参照しプログラムを作成する様に指示する
 
 ## 基本原則
 AIエージェントは，原則として以下のルールに従って作業します．
@@ -77,7 +129,7 @@ AIエージェントは，原則として以下のルールに従って作業し
 | `.logs/`    | 作業ログ       | AI    |
 | `.reports/` | 作業報告       | AI    |
 
-# AI開発ワークフロー
+## AI開発ワークフロー
 
 このプロジェクトでは，AIエージェントによる開発作業を以下のディレクトリ構成で管理します．
 
@@ -104,12 +156,11 @@ AIによる作業報告
 ```
 
 ## Orderファイルの自動生成
-
 AIエディタは，ユーザーから作業内容をチャットで指示された場合，その指示内容を `.orders/order_{n:03}.md` に保存します．
 `n` は `.orders/` 内に存在する最大のOrder番号に1を加えた番号です．
 この際，ユーザーの指示をどのように解釈，保管したかも `.orders/order_{n:03}.md` に記述されます
 
-## WSL環境を作るためのコマンド
+### WSL環境を作るためのコマンド
 ```bash
 wsl --install -d Ubuntu-22.04
 

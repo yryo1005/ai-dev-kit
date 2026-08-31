@@ -74,7 +74,7 @@ git submodule add https://github.com/yryo1005/ai-dev-kit.git .ai/ai-dev-kit
 git submodule add https://github.com/yryo1005/ai-tex-kit.git .ai/ai-tex-kit
 git submodule add https://github.com/yryo1005/ai-pptx-kit.git .ai/ai-pptx-kit
 git submodule add https://github.com/yryo1005/ai-agent.git .ai/ai-agent
-git submodule add https://github.com/yryo1005/pptx-render.git .ai/ai-pptx-kit/pptx-render
+git submodule add https://github.com/yryo1005/pptx-render.git .ai/pptx-render
 export PATH="$PATH:$(pwd)/.ai/ai-agent/bin"
 
 cp .ai/ai-dev-kit/CLAUDE.md ./CLAUDE.md

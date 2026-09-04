@@ -258,9 +258,21 @@ sudo apt install -y \
     ncdu \
     libreoffice \
     libreoffice-l10n-ja \
-    libreoffice-help-ja
+    libreoffice-help-ja \
+    ffmpeg \
+    gnupg
 
-curl -fsSL https://claude.ai/install.sh | bash
+curl -fsSL https://get.docker.com | sudo sh
+sudo usermod -aG docker $USER
+sudo systemctl enable docker
+sudo systemctl start docker
+
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+sudo add-apt-repository -y ppa:xtradeb/apps
+sudo apt update
+sudo apt install -y chromium
 
 git lfs install
 git config --global init.defaultBranch main
@@ -294,10 +306,24 @@ sudo apt-get install -y  \
     fonts-ipaexfont \
     poppler-utils
 
+### 
+code /home/user/workspace
+# 以下の拡張機能をVS Codeに追加する
+# Python
+# Jupyter
+# indent-rainbow
+# LaTeX Workshop
+# Markdown Preview Enhanced
+# Markdown PDF
+# Claude Code for VS Code
+
+
+###
+wsl --shutdown
+
 # 
 sudo apt update
 sudo apt upgrade -y
-
 sudo apt clean
 sudo apt autoremove -y
 sudo apt autoclean

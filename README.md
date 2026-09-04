@@ -50,9 +50,16 @@ flowchart TB
 1. 下記のリンクから `Ubuntu2204_AI_Dev.tar` をダウンロード
 https://drive.google.com/drive/folders/1V0gRYpVfX93hNxGMjQ9Db66az0_YeI2z?usp=drive_link
 
-2. 管理者としてコマンドプロンプトを実行し，下記のコマンドを実行
-```text
-(echo [wsl2] & echo diskSize=1000GB & echo sparseVhd=true) > "%USERPROFILE%\.wslconfig"
+2. 管理者として*コマンドプロンプト*を実行し，下記のコマンドを実行
+```bash
+wsl --update
+(echo [wsl2] 
+echo defaultVhdSize=1000GB
+echo networkingMode=mirrored
+echo [experimental]
+echo sparseVhd=true
+echo autoMemoryReclaim=gradual) > "%USERPROFILE%\.wslconfig"
+
 mkdir C:\Ubuntu2204_AI_Dev
 wsl --import Ubuntu2204_AI_Dev C:\Ubuntu2204_AI_Dev C:\Ubuntu2204_AI_Dev.tar
 code --remote wsl+Ubuntu2204_AI_Dev /home/user/workspace
@@ -164,6 +171,14 @@ AIエディタは，ユーザーから作業内容をチャットで指示され
 
 ### WSL環境を作るためのコマンド
 ```bash
+wsl --update
+(echo [wsl2] 
+echo defaultVhdSize=1000GB
+echo networkingMode=mirrored
+echo [experimental]
+echo sparseVhd=true
+echo autoMemoryReclaim=gradual) > "%USERPROFILE%\.wslconfig"
+
 wsl --install -d Ubuntu-22.04
 
 ### 以下の内容を書き込み

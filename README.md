@@ -341,6 +341,7 @@ code /home/user/workspace
 
 ###
 wsl --shutdown
+wsl -d Ubuntu2204_AI_Dev
 
 # 
 sudo apt update

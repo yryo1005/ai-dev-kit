@@ -74,7 +74,7 @@ https://drive.google.com/drive/folders/1V0gRYpVfX93hNxGMjQ9Db66az0_YeI2z?usp=dri
 2. `/home/user/workspace` の直下に作業ディレクトリを作成
 3. 作業ディレクトリに移動し，VS Codeのターミナルで下記のコマンドを実行
 
-```text
+```bash
 git init
 echo "tokens.json" >> .gitignore
 
@@ -240,6 +240,7 @@ echo 'export PATH=/usr/local/cuda/bin:$PATH' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
 echo 'export CUDA_HOME=/usr/local/cuda' >> ~/.bashrc
 source ~/.bashrc
+cd /home/user/
 nvcc --version
 
 wget https://developer.download.nvidia.com/compute/cudnn/9.23.2/local_installers/cudnn-local-repo-ubuntu2204-9.23.2_1.0-1_amd64.deb
@@ -302,6 +303,7 @@ mkdir -p ~/.local/bin
 ln -sf "$(which fdfind)" ~/.local/bin/fd
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
+cd /home/user/
 
 # UV
 curl -LsSf https://astral.sh/uv/install.sh | sh

@@ -45,15 +45,17 @@ flowchart TB
 ```
 
 ## WSL環境をインポート
+0. WindowsのPCにVS Codeをインストール
+
 1. 下記のリンクから `Ubuntu2204_AI_Dev.tar` をダウンロード
 https://drive.google.com/drive/folders/1V0gRYpVfX93hNxGMjQ9Db66az0_YeI2z?usp=drive_link
 
 2. 管理者としてコマンドプロンプトを実行し，下記のコマンドを実行
 ```text
+(echo [wsl2] & echo diskSize=1000GB & echo sparseVhd=true) > "%USERPROFILE%\.wslconfig"
 mkdir C:\Ubuntu2204_AI_Dev
 wsl --import Ubuntu2204_AI_Dev C:\Ubuntu2204_AI_Dev C:\Ubuntu2204_AI_Dev.tar
-wsl -d Ubuntu2204_AI_Dev
-code /home/user/workspace
+code --remote wsl+Ubuntu2204_AI_Dev /home/user/workspace
 ```
 
 2回目以降は，下記のリンクから `lunch_Ubuntu2204_AI_Dev.bat` をダウンロードし，ダブルクリックするとVS Codeが実行される
@@ -194,6 +196,8 @@ sudo nano /etc/resolv.conf
 nameserver 8.8.8.8
 nameserver 8.8.4.4
 ###
+
+echo 'cd /home/user/workspace' >> ~/.bashrc
 
 wsl --shutdown
 

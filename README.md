@@ -61,7 +61,8 @@ echo sparseVhd=true
 echo autoMemoryReclaim=gradual) > "%USERPROFILE%\.wslconfig"
 
 mkdir C:\Ubuntu2204_AI_Dev
-wsl --import Ubuntu2204_AI_Dev C:\Ubuntu2204_AI_Dev C:\Ubuntu2204_AI_Dev.tar
+wsl --shutdown
+wsl --import Ubuntu2204_AI_Dev C:\Ubuntu2204_AI_Dev {ダウンロードしたUbuntu2204_AI_Dev.tarのフルパス}
 code --remote wsl+Ubuntu2204_AI_Dev /home/user/workspace
 ```
 
@@ -218,6 +219,7 @@ wsl --shutdown
 wsl --export Ubuntu-22.04 C:\Ubuntu-22.04.tar
 mkdir C:\Ubuntu2204_AI_Dev
 wsl --import Ubuntu2204_AI_Dev C:\Ubuntu2204_AI_Dev C:\Ubuntu-22.04.tar
+wsl --shutdown
 wsl --manage Ubuntu2204_AI_Dev --resize 1000GB
 wsl -d Ubuntu2204_AI_Dev
 

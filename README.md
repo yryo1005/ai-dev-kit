@@ -288,7 +288,8 @@ sudo apt install -y \
     libreoffice-l10n-ja \
     libreoffice-help-ja \
     ffmpeg \
-    gnupg
+    gnupg \
+    chromium-browser
 
 curl -fsSL https://get.docker.com | sudo sh
 sudo usermod -aG docker $USER
@@ -316,6 +317,11 @@ cd /home/user/
 # UV
 curl -LsSf https://astral.sh/uv/install.sh | sh
 source $HOME/.local/bin/env
+
+# conda
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+source ~/.bashrc
 
 # TeX (インストール中に止まった場合，Enterキーを連打する)
 sudo apt install -y \

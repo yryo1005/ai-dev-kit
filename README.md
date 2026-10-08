@@ -322,6 +322,8 @@ source $HOME/.local/bin/env
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
 source ~/.bashrc
+conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
+conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
 
 # TeX (インストール中に止まった場合，Enterキーを連打する)
 sudo apt install -y \
@@ -352,6 +354,8 @@ code /home/user/workspace
 # Markdown PDF
 # Claude Code for VS Code
 
+# settings.json に以下の行を追加
+# "markdown-pdf.executablePath": /usr/bin/chromium-browser
 
 ###
 wsl --shutdown

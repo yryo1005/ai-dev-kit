@@ -103,6 +103,11 @@ openssl enc -d -aes-256-cbc -pbkdf2 -iter 100000 \
     -out tokens.json 
 ```
 
+4. Claude Codeのチャット欄に下記のコマンドを入力（リモートコントロールを使用する場合）
+```bash
+/remote-control  
+```
+
 ### サブモジュールの構成
 ```mermaid
 graph TD

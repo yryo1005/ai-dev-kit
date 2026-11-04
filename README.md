@@ -76,33 +76,7 @@ https://drive.google.com/drive/folders/1V0gRYpVfX93hNxGMjQ9Db66az0_YeI2z?usp=dri
 3. 作業ディレクトリに移動し，VS Codeのターミナルで下記のコマンドを実行
 
 ```bash
-git init
-echo "tokens.json" >> .gitignore
-
-mkdir .ai
-git submodule add https://github.com/yryo1005/ai-dev-kit.git .ai/ai-dev-kit
-git submodule add https://github.com/yryo1005/ai-tex-kit.git .ai/ai-tex-kit
-git submodule add https://github.com/yryo1005/ai-pptx-kit.git .ai/ai-pptx-kit
-git submodule add https://github.com/yryo1005/ai-agent.git .ai/ai-agent
-git submodule add https://github.com/yryo1005/pptx-render.git .ai/pptx-render
-export PATH="$PATH:$(pwd)/.ai/ai-agent/bin"
-
-cp .ai/ai-dev-kit/CLAUDE.md ./CLAUDE.md
-cp .ai/ai-dev-kit/AGENTS.md ./AGENTS.md
-mkdir -p .vscode
-cp .ai/ai-dev-kit/settings.json .vscode/
-
-mkdir .logs
-mkdir .orders
-mkdir .reports
-
-echo "" >> .orders/order_001.md
-
-# 山富以外は下記のプロセスは不要
-wget https://github.com/yryo1005/ai-dev-kit/releases/download/v1.0.0/tokens.json.enc
-openssl enc -d -aes-256-cbc -pbkdf2 -iter 100000 \
-    -in tokens.json.enc \
-    -out tokens.json 
+bash <(curl -fsSL https://raw.githubusercontent.com/yryo1005/ai-dev-kit/main/init_project.sh) --tokens
 ```
 
 4. Claude Codeのチャット欄に下記のコマンドを入力（リモートコントロールを使用する場合）

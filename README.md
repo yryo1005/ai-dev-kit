@@ -10,6 +10,8 @@ flowchart TB
     C["ai-tex-kit<br/>Paper & LaTeX"]
     D["ai-pptx-kit<br/>Presentation"]
     E["pptx-render<br/>PPTX → PDF"]
+    L["ai-learn-kit<br/>Learning Materials"]
+    M["ai-survey-kit<br/>Literature Survey"]
 
     F([".orders/<br/>Order"])
     G([".reports/<br/>Report"])
@@ -18,11 +20,17 @@ flowchart TB
     I(["Paper / PDF"])
     J(["PPTX"])
     K(["PDF"])
+    N(["Notebooks<br/>ipynb + md"])
+    O(["Survey Report<br/>bibitem / bib"])
 
     A --> B
     A --> C
     A --> D
+    A --> L
+    A --> M
     D -. uses .-> E
+    M -. references .-> C
+    M -. ideas .-> B
 
     B --> F
     F --> H
@@ -32,16 +40,18 @@ flowchart TB
     C --> I
     D --> J
     E --> K
+    L --> N
+    M --> O
 
     classDef repo fill:#e8f1ff,stroke:#2563eb,stroke-width:2px,color:#111827
     classDef state fill:#f3f4f6,stroke:#6b7280,stroke-width:1.5px,color:#111827
     classDef ai fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#111827
     classDef output fill:#ecfdf5,stroke:#059669,stroke-width:1.5px,color:#111827
 
-    class A,B,C,D,E repo
+    class A,B,C,D,E,L,M repo
     class F,G state
     class H ai
-    class I,J,K output
+    class I,J,K,N,O output
 ```
 
 ## WSL環境をインポート
@@ -76,7 +86,7 @@ https://drive.google.com/drive/folders/1V0gRYpVfX93hNxGMjQ9Db66az0_YeI2z?usp=dri
 3. 作業ディレクトリに移動し，VS Codeのターミナルで下記のコマンドを実行
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/yryo1005/ai-dev-kit/main/init_project.sh) --tokens
+bash <(curl -fsSL https://raw.githubusercontent.com/yryo1005/ai-dev-kit/master/init_project.sh) --tokens
 ```
 
 4. Claude Codeのチャット欄に下記のコマンドを入力（リモートコントロールを使用する場合）
@@ -92,7 +102,19 @@ graph TD
     A --> C[ai-tex-kit]
     A --> D[ai-pptx-kit]
     D --> E[pptx-render]
+    A --> F[ai-learn-kit]
+    A --> G[ai-survey-kit]
 ```
+
+| サブモジュール | 役割 | 主な成果物 |
+| :--- | :--- | :--- |
+| [ai-agent](https://github.com/yryo1005/ai-agent) | 過去のorder・reportから次のorderを生成するAIエージェント | `.orders/order_{n:03}.md` |
+| [ai-tex-kit](https://github.com/yryo1005/ai-tex-kit) | 論文・予稿の作成規約とTeXテンプレート | `paper/`，PDF |
+| [ai-pptx-kit](https://github.com/yryo1005/ai-pptx-kit) | スライドの作成規約とテンプレート | `.pptx`，PDF |
+| [ai-learn-kit](https://github.com/yryo1005/ai-learn-kit) | 到達目標まで段階的に学ぶ教材の作成規約とCLI | `ex{NNN}_*.ipynb`，`ex{NNN}_*.md`，`README.md` |
+| [ai-survey-kit](https://github.com/yryo1005/ai-survey-kit) | 捏造の無い文献調査・研究のアイデア出しの規約とCLI | `survey/`，参考文献リスト |
+
+各kitの規約は `root_prompt.md` の「読み込むドキュメント」の表から自動的に参照されるため，orderでは作業内容を書くだけでよい．
 
 4. `.orders/order_{n:03}.md` を作成し，下記の内容を記述
 ```text
@@ -106,6 +128,20 @@ MNISTを分類するプログラムを作成してください
 * AdamとSGDの学習結果を比較する
 * Seed値は3種類試す
 * Epoch数を5回にする
+```
+
+文献調査の例)
+```text
+Deep Variational Information Bottleneck に関する文献調査を行ってください
+* 目的: 論文の関連研究の章を書くため
+* 起点: arXiv:1612.00410
+```
+
+教材作成の例)
+```text
+VAEを理解するための教材を作成してください
+* 学習者: Pythonは書ける．PyTorchは初めて
+* 公開先: https://github.com/yryo1005/vae_training
 ```
 
 5. `.orders/order_{n:03}.md` を参照しプログラムを作成する様に指示する

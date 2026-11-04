@@ -4,6 +4,7 @@
 - 実験計画を考えるAIエージェント（`machine_learning`ドメイン）が未構築の場合は，`@.ai/ai-agent/README.md`に従いセットアップしてください．サブモジュールとして，あるいはプロジェクト内へ直接実装する形のいずれでもよい．
 - `tokens.json`が無い場合はユーザにこれを警告してください．
 - `tokens.json`は必ず`.gitignore`に追加してください．
+- 段階的に学ぶ教材（ノートブック教材）の作成では，`@.ai/ai-learn-kit/curriculum.md` の「6. ai-dev-kit の規約との関係」に記載された項目について，本ファイルより `curriculum.md` を優先してください．
 
 ---
 
@@ -217,7 +218,9 @@ trainやepoch，iteration関数が最適化手法によって処理が分岐す�
 │   │   └── src/
 │   │       └── machine_learning_utils.py
 │   ├── ai-tex-kit/
-│   └── ai-pptx-kit/
+│   ├── ai-pptx-kit/
+│   ├── ai-learn-kit/
+│   └── ai-survey-kit/
 │
 ├── .venv_{環境名}/
 │

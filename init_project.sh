@@ -20,7 +20,7 @@ set -euo pipefail
 
 # ---------------------------------------------------------------- 設定
 GITHUB_BASE="https://github.com/yryo1005"
-SUBMODULES=(ai-dev-kit ai-tex-kit ai-pptx-kit ai-agent pptx-render)
+SUBMODULES=(ai-dev-kit ai-tex-kit ai-pptx-kit ai-learn-kit ai-survey-kit ai-agent pptx-render)
 TOKENS_URL="${GITHUB_BASE}/ai-dev-kit/releases/download/v1.0.0/tokens.json.enc"
 
 GITIGNORE_LINES=(

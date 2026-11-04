@@ -78,6 +78,13 @@ AIエージェントは該当ドキュメントを読み込まずに作業を開
 | 仮想環境の作成 | `@.ai/ai-dev-kit/environment_construction.md` |
 | 論文（TeXレポート）の作成 | `@.ai/ai-tex-kit/README.md` |
 | スライドの作成 | `@.ai/ai-pptx-kit/README.md` |
+| 教材（到達目標まで段階的に学ぶノートブック教材）の作成 | `@.ai/ai-learn-kit/README.md`，`@.ai/ai-learn-kit/curriculum.md`，`@.ai/ai-learn-kit/pedagogy.md` |
+| 文献調査・関連研究の執筆・参考文献リストの作成・研究のアイデア出し | `@.ai/ai-survey-kit/README.md`，`@.ai/ai-survey-kit/survey.md`，`@.ai/ai-survey-kit/ideation.md` |
+
+複数のkitにまたがるタスクでは，以下の規約に従ってください．
+- **教材の作成**：教材のノートブックはGoogle Colab等で単体実行するため，`@.ai/ai-learn-kit/curriculum.md` の「6. ai-dev-kit の規約との関係」に記載された項目は `machine_learning.md` より `curriculum.md` を優先する．それ以外（order・report，進捗の報告，Docstring，文章の表記）は本ファイルと `documentation.md` に従う．
+- **論文の関連研究・参考文献**：論文（TeXレポート）で文献を引用する場合は，ai-tex-kit に加えて ai-survey-kit の規約も読み込む．文献の書誌情報（著者，年，タイトル，掲載先，DOI）を記憶から書いてはならず，`surveykit.py` で取得・登録した文献のみを引用し，`surveykit.py cite-check` で検証する．
+- **研究のアイデア出し**：次の実験や研究の方向性を検討する場合は，`.reports/` の結果に加えて `@.ai/ai-survey-kit/ideation.md` の観点を用いる．
 
 ---
 
@@ -94,7 +101,10 @@ AIエージェントが実装されている場合がある．
 - `.reports/report_{k:03}.md`や`document.md`等の成果物には，AIエージェントが次の指示を検討する
   際に必要となる情報（実施した内容，得られた結論，未解決の論点，次に検討すべき候補等）を
   過不足なく記載する．具体的な記載内容は，タスクの種類に応じて`@.ai/ai-dev-kit/documentation.md`，
-  `@.ai/ai-tex-kit/README.md`，`@.ai/ai-pptx-kit/README.md`の規約に従う．
+  `@.ai/ai-tex-kit/README.md`，`@.ai/ai-pptx-kit/README.md`，`@.ai/ai-learn-kit/curriculum.md`，
+  `@.ai/ai-survey-kit/survey.md`の規約に従う．
+- 文献調査を行った場合，`survey/survey_report.md`の「未解決の課題」「改善の候補」「次に検討すべき事項」は，
+  `research`エージェントが次のorderを検討する際の手がかりとなるため，文献に基づく事実と推測を区別して具体的に書く．
 
 ---
 
@@ -111,7 +121,10 @@ AIエージェントが実装されている場合がある．
 │   │   └── slide/		        # スライド作成に関するAIエージェント
 │   ├── ai-dev-kit/		        # プログラムの作成指示，便利関数のリポジトリ(サブモジュール)
 │   ├── ai-tex-kit/		        # 文書の作成指示，テンプレートのリポジトリ(サブモジュール)
-│   └── ai-pptx-kit/		    # スライドの作成指示，テンプレートのリポジトリ(サブモジュール)
+│   ├── ai-pptx-kit/		    # スライドの作成指示，テンプレートのリポジトリ(サブモジュール)
+│   ├── ai-learn-kit/		    # 教材の作成指示，テンプレート，CLIのリポジトリ(サブモジュール)
+│   └── ai-survey-kit/		    # 文献調査の作成指示，テンプレート，CLIのリポジトリ(サブモジュール)
+├── survey/		                # 文献調査の成果物（ai-survey-kit を使用した場合）
 ├── .venv_{環境名}/		        # 仮想環境
 ├── .logs/			            # AIエージェントのログを保持するディレクトリ
 ├── .orders/		            # AIコーディングへの指示を保持するディレクトリ

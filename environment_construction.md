@@ -38,15 +38,6 @@ nbconvert
 `tests/`（配置規約は`@.ai/ai-dev-kit/root_prompt.md`を参照）にテストを作成する場合は，`pytest`を
 該当する仮想環境にインストールし，`requirements_{環境名}.txt`に含めてください．
 
-### VS Code
-`uv` で作成した仮想環境がVS Codeから認識されるよう，プロジェクトルートの `.vscode/settings.json` に以下を記述してください．
-```json
-{
-    "python.venvPath": "${workspaceFolder}"
-}
-```
-`.vscode/settings.json` が存在しない場合は作成してください．
-
 ## Git
 
 ### `.gitignore`

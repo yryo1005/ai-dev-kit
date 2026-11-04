@@ -89,6 +89,8 @@ export PATH="$PATH:$(pwd)/.ai/ai-agent/bin"
 
 cp .ai/ai-dev-kit/CLAUDE.md ./CLAUDE.md
 cp .ai/ai-dev-kit/AGENTS.md ./AGENTS.md
+mkdir -p .vscode
+cp .ai/ai-dev-kit/settings.json .vscode/
 
 mkdir .logs
 mkdir .orders

@@ -41,6 +41,7 @@ GITIGNORE_LINES=(
     "# VS Code"
     ".vscode/*"
     "!.vscode/settings.json"
+    "!.vscode/pdf-style.css"
     "# WSL"
     "*.Identifier"
 )
@@ -136,6 +137,7 @@ copy_file() {
 copy_file "${KIT_DIR}/CLAUDE.md" "CLAUDE.md"
 copy_file "${KIT_DIR}/AGENTS.md" "AGENTS.md"
 copy_file "${KIT_DIR}/settings.json" ".vscode/settings.json"
+copy_file "${KIT_DIR}/pdf-style.css" ".vscode/pdf-style.css"
 
 # ---------------------------------------------------------------- 5. 作業用ディレクトリ
 for dir in .logs .orders .reports; do

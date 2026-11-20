@@ -1,9 +1,12 @@
 {
   "python.venvPath": "${workspaceFolder}",
   "markdown-pdf.executablePath": "/usr/bin/chromium-browser",
+  "markdown-pdf.styles": [
+    ".vscode/pdf-style.css"
+  ],
   "terminal.integrated.env.linux": {
     "DISABLE_ERROR_REPORTING": "1",
     "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1"
   },
-  "typescript.tsserver.maxTsServerMemory": 8192
+  "typescript.tsserver.maxTsServerMemory": 8192,
 }
